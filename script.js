@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (currentPage === 'Gestión de Usuarios') {
         // Users page functionality
         const users = [
-            { id: 1, name: 'Juan Pérez', email: 'juan@example.com', role: 'Admin', status: 'Activo' },
-            { id: 2, name: 'María García', email: 'maria@example.com', role: 'Usuario', status: 'Activo' },
+            { id: 1, name: 'Jose Pérez', email: 'jose@example.com', role: 'Admin', status: 'Activo' },
+            { id: 2, name: 'Manuel García', email: 'manuga@example.com', role: 'Usuario', status: 'Activo' },
             { id: 3, name: 'Carlos López', email: 'carlos@example.com', role: 'Editor', status: 'Inactivo' },
-            { id: 4, name: 'Ana Martínez', email: 'ana@example.com', role: 'Usuario', status: 'Activo' },
+            { id: 4, name: 'Mari Martínez', email: 'marima@example.com', role: 'Usuario', status: 'Activo' },
             { id: 5, name: 'Pedro Sánchez', email: 'pedro@example.com', role: 'Usuario', status: 'Inactivo' }
         ];
 
@@ -144,9 +144,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     datasets: [{
                         data: [30, 25, 20, 25],
                         backgroundColor: [
-                            'rgba(255, 99, 132, 0.8)',
-                            'rgba(54, 162, 235, 0.8)',
-                            'rgba(255, 206, 86, 0.8)',
+                            'rgba(255, 147, 201, 0.8)',
+                            'rgba(130, 178, 255, 0.86)',
+                            'rgba(251, 181, 106, 0.88)',
                             'rgba(75, 192, 192, 0.8)'
                         ]
                     }]
@@ -156,10 +156,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     plugins: {
                         legend: {
                             position: 'bottom',
-                        },
-                        title: {
-                            display: true,
-                            text: 'Ventas por Categoría'
                         }
                     }
                 }
@@ -224,10 +220,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Sales Performance Table
         const salesPerformance = [
-            { product: 'Laptop', sales: 120, revenue: '$120,000', growth: '+15%' },
-            { product: 'Smartphone', sales: 200, revenue: '$100,000', growth: '+10%' },
-            { product: 'Tablet', sales: 80, revenue: '$40,000', growth: '+5%' },
-            { product: 'Smartwatch', sales: 50, revenue: '$25,000', growth: '+20%' }
+            { product: 'Nike Dunk Low', sales: 120, revenue: '3.400€', growth: '+15%' },
+            { product: 'iPhone 13', sales: 2200, revenue: '1.200€', growth: '+10%' },
+            { product: 'Kindle', sales: 80, revenue: '120€', growth: '+5%' },
+            { product: 'Creatina', sales: 50, revenue: '47€', growth: '+20%' }
         ];
 
         const salesPerformanceTable = document.getElementById('salesPerformanceTable');
@@ -253,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
                     datasets: [{
                         label: 'Ventas',
-                        data: [12, 19, 3, 5, 2, 3],
+                        data: [12, 19, 4, 11, 7, 2],
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         borderColor: 'rgba(75, 192, 192, 1)',
                         borderWidth: 1
