@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - Dashboard Administrativo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen overflow-hidden">
+         <!-- Sidebar -->
+         <aside id="sidebar" class="bg-[#FFFFFF] text-black w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
+            <a href="#" class="text-[#186b6b] flex items-center space-x-2 px-4">
+                <i class="fas fa-chart-line"></i>
+                <span class="text-2xl text-[#186b6b] font-extrabold">Dashboard</span>
+            </a>
+            <nav>
+                <a href="index.html" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-[#186b6b] hover:text-white">
+                    <i class="fas fa-home mr-2"></i>Inicio
+                </a>
+                <a href="reportes.html" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-[#186b6b] hover:text-white">
+                    <i class="fas fa-chart-bar mr-2"></i>Reportes
+                </a>
+                <a href="usuarios.html" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-[#186b6b] hover:text-white">
+                    <i class="fas fa-users mr-2"></i>Usuarios
+                </a>
+                <a href="configuracion.html" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-[#186b6b] hover:text-white">
+                    <i class="fas fa-cog mr-2"></i>Configuración
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="bg-[#e5e7eb] shadow-lg py-4 px-4">
+                <div class="flex items-center justify-between">
+                    <button id="menu-toggle" class="text-gray-500 focus:outline-none md:hidden">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="relative">
+                        <input type="text" class="bg-white rounded py-2 px-4 pl-10 w-64 focus:outline-none focus:shadow-outline" placeholder="Buscar...">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                    <div class="flex items-center">
+                        <button class="text-gray-500 focus:outline-none mr-4">
+                            <i class="fas fa-bell"></i>
+                            <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs absolute -mt-2 -mr-2">3</span>
+                        </button>
+                        <svg class="ml-4 mr-2.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="none" stroke="#4bc0c0" stroke-dasharray="28" stroke-dashoffset="28" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                <path d="M4 21v-1c0 -3.31 2.69 -6 6 -6h4c3.31 0 6 2.69 6 6v1">
+                                    <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="28;0"/>
+                                </path>
+                                <path d="M12 11c-2.21 0 -4 -1.79 -4 -4c0 -2.21 1.79 -4 4 -4c2.21 0 4 1.79 4 4c0 2.21 -1.79 4 -4 4Z">
+                                    <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.4s" values="28;0"/>
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main -->
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 p-4">
+                <h1 class="text-3xl font-semibold mb-6">Configuración del Sistema</h1>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Configuración General -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-xl font-semibold mb-4">Configuración General</h2>
+                        <form id="generalConfigForm">
+                            <div class="mb-4">
+                                <label for="siteName" class="block text-sm font-medium text-gray-700">Nombre del Sitio</label>
+                                <input type="text" id="siteName" name="siteName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            </div>
+                            <div class="mb-4">
+                                <label for="siteDescription" class="block text-sm font-medium text-gray-700">Descripción del Sitio</label>
+                                <textarea id="siteDescription" name="siteDescription" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+                            </div>
+                            <div class="mb-4">
+                                <label for="timezone" class="block text-sm font-medium text-gray-700">Zona Horaria</label>
+                                <select id="timezone" name="timezone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                    <option value="UTC-5">UTC-5 (Eastern Time)</option>
+                                    <option value="UTC-6">UTC-6 (Central Time)</option>
+                                    <option value="UTC-7">UTC-7 (Mountain Time)</option>
+                                    <option value="UTC-8">UTC-8 (Pacific Time)</option>
+                                </select>
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <input type="checkbox" id="maintenanceMode" name="maintenanceMode" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                <label for="maintenanceMode" class="ml-2 block text-sm text-gray-900">Activar Modo de Mantenimiento</label>
+                            </div>
+                            <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                                Guardar Configuración General
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Configuración de Correo -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-xl font-semibold mb-4">Configuración de Correo</h2>
+                        <form id="emailConfigForm">
+                            <div class="mb-4">
+                                <label for="smtpServer" class="block text-sm font-medium text-gray-700">Servidor SMTP</label>
+                                <input type="text" id="smtpServer" name="smtpServer" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            </div>
+                            <div class="mb-4">
+                                <label for="smtpPort" class="block text-sm font-medium text-gray-700">Puerto SMTP</label>
+                                <input type="number" id="smtpPort" name="smtpPort" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            </div>
+                            <div class="mb-4">
+                                <label for="smtpUsername" class="block text-sm font-medium text-gray-700">Usuario SMTP</label>
+                                <input type="text" id="smtpUsername" name="smtpUsername" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            </div>
+                            <div class="mb-4">
+                                <label for="smtpPassword" class="block text-sm font-medium text-gray-700">Contraseña SMTP</label>
+                                <input type="password" id="smtpPassword" name="smtpPassword" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            </div>
+                            <div class="mb-4">
+                                <label for="fromEmail" class="block text-sm font-medium text-gray-700">Correo del Remitente</label>
+                                <input type="email" id="fromEmail" name="fromEmail" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            </div>
+                            <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                                Guardar Configuración de Correo
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Configuración de Seguridad -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-xl font-semibold mb-4">Configuración de Seguridad</h2>
+                        <form id="securityConfigForm">
+                            <div class="mb-4">
+                                <label for="passwordMinLength" class="block text-sm font-medium text-gray-700">Longitud Mínima de Contraseña</label>
+                                <input type="number" id="passwordMinLength" name="passwordMinLength" min="8" max="32" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <input type="checkbox" id="requireUppercase" name="requireUppercase" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                <label for="requireUppercase" class="ml-2 block text-sm text-gray-900">Requerir Mayúsculas</label>
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <input type="checkbox" id="requireNumbers" name="requireNumbers" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                <label for="requireNumbers" class="ml-2 block text-sm text-gray-900">Requerir Números</label>
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <input type="checkbox" id="requireSpecialChars" name="requireSpecialChars" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                <label for="requireSpecialChars" class="ml-2 block text-sm text-gray-900">Requerir Caracteres Especiales</label>
+                            </div>
+                            <div class="mb-4">
+                                <label for="sessionTimeout" class="block text-sm font-medium text-gray-700">Tiempo de Expiración de Sesión (minutos)</label>
+                                <input type="number" id="sessionTimeout" name="sessionTimeout" min="5" max="1440" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            </div>
+                            <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                                Guardar Configuración de Seguridad
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Configuración de Notificaciones -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-xl font-semibold mb-4">Configuración de Notificaciones</h2>
+                        <form id="notificationConfigForm">
+                            <div class="flex items-center mb-4">
+                                <input type="checkbox" id="emailNotifications" name="emailNotifications" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                <label for="emailNotifications" class="ml-2 block text-sm text-gray-900">Activar Notificaciones por Correo</label>
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <input type="checkbox" id="pushNotifications" name="pushNotifications" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                <label for="pushNotifications" class="ml-2 block text-sm text-gray-900">Activar Notificaciones Push</label>
+                            </div>
+                            <div class="mb-4">
+                                <label for="notificationFrequency" class="block text-sm font-medium text-gray-700">Frecuencia de Notificaciones</label>
+                <select id="notificationFrequency" name="notificationFrequency" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    <option value="realtime">Tiempo Real</option>
+                    <option value="hourly">Cada Hora</option>
+                    <option value="daily">Diario</option>
+                    <option value="weekly">Semanal</option>
+                </select>
+            </div>
+            <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">
+                Guardar Configuración de Notificaciones
+            </button>
+        </form>
+    </div>
+</div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-white shadow-lg py-4 px-4">
+    <p class="text-center text-gray-600">© 2023 Tu Empresa. Todos los derechos reservados.</p>
+</footer>
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
